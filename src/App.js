@@ -1,19 +1,8 @@
 import './App.css'
-import TasksForm from './components/forms/TaskForm'
-import TasksList from './components/TasksList'
+import TasksPage from './pages/TasksPage'
 
 function App () {
-  return (
-    <>
-      <header>
-        <h1>Tasks List</h1>
-      </header>
-      <main>
-        <TasksForm />
-        <TasksList />
-      </main>
-    </>
-  )
+  return <TasksPage />
 }
 
 export default App

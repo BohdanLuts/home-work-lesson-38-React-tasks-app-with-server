@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { TASK_VALIDATION_SCHEMA } from '../../../utils/validationSchemas'
 import { connect } from 'react-redux'
 import { createTask } from '../../../store/slices/tasksSlice'
+import styles from './TaskForm.module.sass'
 
 function TaskForm ({ create }) {
   const initialValues = { value: '' }
@@ -17,15 +18,20 @@ function TaskForm ({ create }) {
       onSubmit={handleSubmit}
       validationSchema={TASK_VALIDATION_SCHEMA}
     >
-      <Form>
+      <Form className={styles.form}>
         <Field
           name='value'
           type='text'
           placeholder='Write a new task here'
           autoFocus
+          className={styles.field}
         />
-        <ErrorMessage name='value' component='span' />
-        <button type='submit'>Add</button>
+        <button type='submit' className={styles.add}>
+          Add
+        </button>
+        <span className={styles.errorMessage}>
+          <ErrorMessage name='value' component='span' />
+        </span>
       </Form>
     </Formik>
   )

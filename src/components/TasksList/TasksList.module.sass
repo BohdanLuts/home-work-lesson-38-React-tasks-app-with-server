@@ -1,0 +1,55 @@
+@import './../../common/style/vars'
+    
+.listWrapper, .task
+  width: 100%
+
+.taskList
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-inline-start: 0px
+
+.tasksListItem
+  display: flex
+  align-items: center
+  width: 90%
+  padding: 5px 0
+  border-top: 1px solid $main-light-color
+  list-style-type: none
+
+.task, .done, .notDone
+  padding: 5px
+
+.task
+  margin-left: 10px
+  
+.done
+  margin: 5px 10px
+  color: green
+
+.notDone
+  color: #896200
+  margin: 5px 10px
+  
+.remove
+  border: none
+  border-radius: 5px
+  background-color: #ffabab
+  padding: 5px 15px
+  cursor: pointer
+ 
+.removeIcon
+  color: #401313
+  padding: 2px
+
+.tasksError
+  color: red
+
+.tasksLoad
+  position: absolute
+  top: -25px
+  left: 25px
+
+.tasksError, .tasksLoad
+  font-weight: bold

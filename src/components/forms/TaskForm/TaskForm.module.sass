@@ -1,0 +1,37 @@
+@import './../../../common/style/vars'
+
+.form 
+  display: flex
+  flex-direction: column
+  width: 90%
+  margin: 0 auto
+
+.errorMessage 
+  position: absolute
+  top: 200px
+  left: 50%
+  transform: translate(-50%, -50%)
+  text-align: center
+  color: red
+  font-style: italic
+
+.field 
+  width: 50%
+  border: 1px solid #cecece
+  font-family: inherit
+  text-align: center
+  margin: 5px auto 10px
+
+.add
+  width: 30%
+  font-size: 15px
+  font-weight: bold
+  font-family: inherit
+  border: none
+  border-radius: 10px
+  background-color: $main-light-color
+  margin: 5px auto 10px
+  cursor: pointer
+
+.form, .field, .add
+  padding: 10px

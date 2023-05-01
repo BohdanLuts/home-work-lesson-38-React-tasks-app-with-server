@@ -5,6 +5,12 @@ import {
   deleteTask,
   updateTask
 } from './../../store/slices/tasksSlice'
+import {
+  BsFillTrashFill,
+  BsFillCheckCircleFill,
+  BsFillClockFill
+} from 'react-icons/bs'
+import styles from './TasksList.module.sass'
 
 function TasksList ({ tasks, isFetching, error, get, remove, update }) {
   useEffect(() => {
@@ -15,30 +21,41 @@ function TasksList ({ tasks, isFetching, error, get, remove, update }) {
     update(id, { isDone: checked })
   }
   return (
-    <ul>
-      {isFetching && <div>Loading...</div>}
-      {error && <div>ERROR!!!!</div>}
-      {!error &&
-        tasks.map(t => (
-          <li key={t.id}>
-            <input
-              type='checkbox'
-              checked={t.isDone}
-              onChange={({ target: { checked } }) =>
-                isDoneChangeHandler(t.id, checked)
-              }
-            />
-            <button
-              onClick={() => {
-                remove(t.id)
-              }}
-            >
-              X
-            </button>
-            {t.value}
-          </li>
-        ))}
-    </ul>
+    <div className={styles.listWrapper}>
+      <ul className={styles.taskList}>
+        {isFetching && <div className={styles.tasksLoad}>Loading...</div>}
+        {error && <div className={styles.tasksError}>ERROR!!!!</div>}
+        {!error &&
+          tasks.map(t => (
+            <li className={styles.tasksListItem} key={t.id}>
+              <input
+                type='checkbox'
+                checked={t.isDone}
+                onChange={({ target: { checked } }) =>
+                  isDoneChangeHandler(t.id, checked)
+                }
+              />
+
+              <span className={styles.task}>{t.value}</span>
+              <span>
+                {t.isDone ? (
+                  <BsFillCheckCircleFill className={styles.done} />
+                ) : (
+                  <BsFillClockFill className={styles.notDone} />
+                )}
+              </span>
+              <button
+                className={styles.remove}
+                onClick={() => {
+                  remove(t.id)
+                }}
+              >
+                <BsFillTrashFill className={styles.removeIcon} />
+              </button>
+            </li>
+          ))}
+      </ul>
+    </div>
   )
 }
 

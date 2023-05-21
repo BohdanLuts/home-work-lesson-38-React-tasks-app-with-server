@@ -8,7 +8,7 @@ function TaskForm ({ create }) {
   const initialValues = { value: '' }
 
   const handleSubmit = (values, formikBag) => {
-    create({ ...values, isBought: false })
+    create({ ...values, isDone: false })
     formikBag.resetForm()
   }
 

@@ -4,7 +4,7 @@ import * as API from '../../api'
 const TASKS_SLICE_NAME = 'tasks'
 
 export const createTask = createAsyncThunk(
-  `tasks/create`,
+  `${TASKS_SLICE_NAME}/create`,
   async (values, thunkAPI) => {
     try {
       const response = await API.createNewTask(values)
